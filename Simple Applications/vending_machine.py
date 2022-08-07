@@ -1,5 +1,6 @@
 # Edit Machine Profile
 # Please create a txt file and change the name below accordingly when using this app
+# Code is still in fine-tuning phase
 
 def editMachineProfile():
     label = ['Slot ID:','Product ID:','Quantity:']  # assume these are the only parameters used in backend vending machines
