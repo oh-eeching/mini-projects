@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset = "utf-8">
+<title>Event</title>
+
+<style>
+	#example {
+	transition : all 1s ease-in-out;
+	position: absolute;
+	width: 10vw;
+	height: 10vh;
+	top: 45vh;
+	left: 45vw;
+	font-size: 2vmin;
+	}
+</style>
+
+<button id=example>Press Me!</button>
+
+<script>
+	function react(e) {
+		e.target.style.top = `${Math.random()*95}vh`;
+		e.target.style.left = `${Math.random()*95}vw`;
+	}
+
+	function record(e) { 
+		e.target.textContent = `Clicks: ${++clicks}`;
+	}
+
+	let clicks = 0;
+	
+	window.example.addEventListener("mouseover",react); 
+	window.example.addEventListener("click",react);
+	window.example.addEventListener("click",record);
+</script>
+</html>
