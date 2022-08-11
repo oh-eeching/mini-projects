@@ -10,4 +10,4 @@ Small and simple projects I engage in during my idle time to practice my coding 
 - [Certificate Template](https://github.com/oh-eeching/mini-projects/blob/612a43465c71a347fcf0b2d9a9ee36419f514989/mySQL/certTemplate) (For database application)
 
 # Games
-- 
+- [Click Me!](https://github.com/oh-eeching/mini-projects/blob/cbe5950d1cd04ae186950eafe3753bf7946d8279/Games/clickMe.html)
