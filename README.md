@@ -9,5 +9,3 @@ Small and simple projects I engage in during my idle time to practice my coding 
 - [MySQL Connection Template](https://github.com/oh-eeching/mini-projects/blob/1a5ddb56183eedf8fda922948205a7c222148f45/mySQL/certTemplate)
 - [Certificate Template](https://github.com/oh-eeching/mini-projects/blob/612a43465c71a347fcf0b2d9a9ee36419f514989/mySQL/certTemplate) (For MySQL application)
 
-# Games
-- [Click Me!](https://github.com/oh-eeching/mini-projects/blob/cbe5950d1cd04ae186950eafe3753bf7946d8279/Games/clickMe.html)
