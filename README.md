@@ -11,3 +11,6 @@ Small and simple projects I engage in during my idle time to practice my coding 
 
 # Web-Based
 - [Prod-Records](https://github.com/oh-eeching/mini-projects/blob/83bdce17699b62cdcc4690ea58adc8de187caad6/Web-Based/storeProduct/app.py) (Using sqlite3)
+
+# Cleaning Data
+- [World Bank GDP Data](https://github.com/oh-eeching/mini-projects/blob/33aa25bfa2fc38c47985091ad438c63ae40dc43d/Cleaning%20Data/worldBank_data.R) (In R)
