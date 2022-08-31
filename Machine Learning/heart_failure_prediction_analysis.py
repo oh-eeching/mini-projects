@@ -95,7 +95,23 @@ Y_train.value_counts() # checking if Y is balanced
 
 from sklearn import linear_model
 
+model = linear_model.LogisticRegression(random_state=1)
+model.fit(X_train, Y_train)
 
+from sklearn.metrics import confusion_matrix
 
+pred = model.predict(X_test)
+cm = confusion_matrix(Y_test,pred)
+print("Accuracy is ", (cm[0,0] + cm[1,1])/(sum(sum(cm))))
+
+from sklearn.metrics import plot_roc_curve
+
+plot_roc_curve(model, X_test, Y_test)
+
+from sklearn.metrics import plot_precision_recall_curve
+plot_precision_recall_curve(model, X_test, Y_test)
+
+from sklearn import tree
+model_tree = tree.DecisionTreeClassifier(random_state=1)
 
 
