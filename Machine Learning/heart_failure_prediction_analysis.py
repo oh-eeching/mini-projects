@@ -95,14 +95,14 @@ Y_train.value_counts() # checking if Y is balanced
 
 from sklearn import linear_model
 
-model = linear_model.LogisticRegression(random_state=1)
+model = linear_model.LogisticRegression(random_state=1)   
 model.fit(X_train, Y_train)
 
 from sklearn.metrics import confusion_matrix
 
 pred = model.predict(X_test)
 cm = confusion_matrix(Y_test,pred)
-print("Accuracy is ", (cm[0,0] + cm[1,1])/(sum(sum(cm))))
+print("Accuracy is ", (cm[0,0] + cm[1,1])/(sum(sum(cm))))    # Logistic Regression model
 
 from sklearn.metrics import plot_roc_curve
 
@@ -112,6 +112,31 @@ from sklearn.metrics import plot_precision_recall_curve
 plot_precision_recall_curve(model, X_test, Y_test)
 
 from sklearn import tree
+
 model_tree = tree.DecisionTreeClassifier(random_state=1)
+model_tree.fit(X_train, Y_train)
+pred = model_tree.predict(X_test)
+cm = confusion_matrix(Y_test, pred)
+print("Accuracy is ", (cm[0,0] + cm[1,1])/(sum(sum(cm))))     # Decision Tree model
 
+from sklearn import ensemble
 
+modelE = ensemble.RandomForestClassifier(random_state=1)
+modelE.fit(X_train, Y_train)
+pred = modelE.predict(X_test)
+cm = confusion_matrix(Y_test, pred)
+print("Accuracy is ", (cm[0,0] + cm[1,1])/(sum(sum(cm))))     # Random Forest model
+
+modelG = ensemble.GradientBoostingClassifier(random_state=1)
+modelG.fit(X_train, Y_train)
+pred = modelG.predict(X_test)
+cm = confusion_matrix(Y_test, pred)
+print("Accuracy is ", (cm[0,0] + cm[1,1])/(sum(sum(cm))))    # Gradient Boosting model
+
+from sklearn import neural_network
+
+modelN = neural_network.MLPClassifier(random_state=1)
+modelN.fit(X_train, Y_train)
+pred = modelN.predict(X_test)
+cm = confusion_matrix(Y_test, pred)
+print("Accuracy is ", (cm[0,0] + cm[1,1])/(sum(sum(cm))))   # Neural Network model
