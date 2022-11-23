@@ -15,6 +15,6 @@ Small and simple projects I engage in during my idle time to practice my coding 
 # Cleaning Data
 - [World Bank GDP Data](https://github.com/oh-eeching/mini-projects/blob/33aa25bfa2fc38c47985091ad438c63ae40dc43d/Cleaning%20Data/worldBank_data.R) (In R)
 
-# Text Sentiment
+# Text Mining/ Analysis
 - [CSV files](https://github.com/oh-eeching/mini-projects/blob/main/Text%20Sentiment/csv_files)
-- [Text files]
+- [Text files](https://github.com/oh-eeching/mini-projects/blob/main/Text%20Sentiment/text_files)
