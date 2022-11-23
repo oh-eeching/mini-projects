@@ -1,0 +1,43 @@
+# using news.csv file
+
+import pandas as pd
+import matplotlib.pyplot as plt
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+
+df = pd.read_csv("news.csv")
+analyzer = SentimentIntensityAnalyzer()
+
+positive_news = []
+negative_news = []
+neutral_news = []
+
+for index, row in df.iterrows():
+    analyzer_dict = analyzer.polarity_scores(df.iloc[index, -1])
+    if analyzer_dict['compound'] >= 0.05:
+        positive_news.append(row['clean_text'])
+    elif analyzer_dict['compound'] <= -0.05:
+        negative_news.append(row['clean_text'])
+    else:
+        neutral_news.append(row['clean_text'])
+
+print("Positive News:")
+for i in range(len(positive_news)):
+    print(str(i+1)+'. '+positive_news[i])
+
+print("\nNegative News:")
+for i in range(len(negative_news)):
+    print(str(i+1)+'. '+negative_news[i])
+
+print("\nNeutral News:")
+for i in range(len(neutral_news)):
+    print(str(i+1)+'. '+neutral_news[i])
+    
+# plot results
+x_axis = ['Positive', 'Negative', 'Neutral']
+y_axis = [497, 248, 252]
+
+plt.bar(x_axis, y_axis)
+plt.title('News Sentiment')
+plt.xlabel('Type of News')
+plt.ylabel('Number of News')
+plt.show()
