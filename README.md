@@ -1,4 +1,4 @@
-# mini-projects
+# miniProjects
 Small and simple projects I engage in during my idle time to practice my coding skills!
 
 # Simple applications
