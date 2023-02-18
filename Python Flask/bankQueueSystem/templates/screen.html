@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue Display</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript">
+        function refreshDiv(){ 
+            $( "#queue-table" ).load(window.location.href + " #queue-table " );
+        }
+        setInterval(refreshDiv, 5000);
+    </script>
+</head>
+<body>
+    <style>
+        * {
+        box-sizing: border-box;
+        }
+
+        :root {
+        --background: #ffffff;
+        --background-accent: #a3e6f8;
+        --background-accent-2: #6ebee6;
+        --light: #34b1de;
+        --dark: #2281bc;
+        --text: #030056;
+        }
+
+        body {
+        background-color: var(--background);
+        background-image: linear-gradient(
+            var(--background-accent-2) 50%,
+            var(--background-accent) 50%
+        ), linear-gradient(
+            var(--background-accent) 50%,
+            var(--background-accent-2) 50%
+        );
+        background-repeat: no-repeat;
+        background-size: 100% 30px;
+        background-position: top left, bottom left;
+        min-height: 98vh;
+        }
+
+        div {
+        display: block;
+        width: 400px;
+        margin: 0 auto 0 auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 30vh;
+        font-family: Georgia;
+        }
+
+        h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            top: 10px;
+            position:relative;
+        }
+
+        #datetime {
+            top: 60px;
+            line-height: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            font-size:x-large;
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom:30px;
+        }
+
+        td, th {
+            border: 1px solid #00157e;
+            text-align: center;
+            padding: 8px;
+        }
+
+        th{
+            background: #a3e6f8;
+        }
+
+        #queue-table {
+            position: fixed;
+            top: 140px;
+            width: 70%;
+        }
+        
+        .marquee {
+            width: 100%;
+            line-height: 10px;
+            background-color: black;
+            color: white;
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+            top: 630px;
+        }
+        .marquee p {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 30s linear infinite;
+            font-family: Arial, Helvetica, sans-serif;
+            color: yellow;
+        }
+        @keyframes marquee {
+            0%   { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        #queue-missed {
+            line-height: 20px;
+        }
+
+        #th-missed {
+            padding-bottom: 0px;
+            line-height: 10px;
+            padding-top: 15px;
+        }
+
+    </style>
+    <center><h1>Welcome to Bank of JK, {{branch}}</h1></center>
+    <center><div id="datetime">
+        <h2><span id='date'></span></h2>
+        <h2><span id='time'></span></h2>
+        <script>
+            `use strict`;
+            function refreshTime() {
+                const options = {weekday:'long', year:'numeric', month:'short', day:'numeric'};
+
+                const dateDisplay = new Date().toLocaleDateString("en-US", options);
+                document.getElementById("date").textContent = dateDisplay; 
+
+                const timeDisplay = new Date().toLocaleTimeString();
+                document.getElementById("time").textContent = timeDisplay; 
+            }
+            setInterval(refreshTime, 1000);
+
+        </script>
+    </div></center>
+
+    <div id = "queue-table">
+        <table id="queue">
+            <tr>
+                <th>Queue Number</th>
+                <th>Counter</th>
+            </tr>
+            {% if all_serve == None %}
+                <td>None</td>
+            <tr>
+            {% else %}
+            </tr>
+            {% for a in all_serve %}
+            <tr>
+                <td>{{a[0]}}</td>
+                <td>{{a[1]}}</td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </table>
+        <table id="queue-missed">
+            <tr>
+                <th id="th-missed">Missed Queue<br>
+                    <p style="font-size:15px;">Please take a new queue number.</p>
+                </th>
+            </tr>
+            {% for m in miss %}
+            <tr>
+                <td>{{m}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    
+    <div class="marquee">
+        <p> Welcome to Bank of JK. Please note that queue numbers may not be called in sequence. Please present your queue number and identification at the counter. Thank you.</p>
+    </div>
+
+</body>
+</html>
