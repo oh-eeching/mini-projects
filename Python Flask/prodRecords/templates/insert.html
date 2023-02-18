@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+    <style>
+        body {
+          margin: 0;
+        }
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          width: 25%;
+          background-color: #f1f1f1;
+          position: fixed;
+          height: 100%;
+          overflow: auto;
+        }
+        li a {
+          display: block;
+          color: #000;
+          padding: 8px 16px;
+          text-decoration: none;
+        }
+        li a.active {
+          background-color: #4586a0;
+          color: white;
+        }
+        li a:hover:not(.active) {
+          background-color: #555;
+          color: white;
+        }
+        input[type=text], select {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+        }
+        input[type=submit] {
+          width: 100%;
+          background-color: #4586a0;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        input[type=submit]:hover {
+          background-color: #4586a0;
+        }
+        #bloc {
+          border-radius: 5px;
+          background-color: #f2f2f2;
+          padding: 20px;
+        }
+      </style>
+    <body>
+      <ul>
+        <li><a class="active" href='/'>Home Page</a></li>
+        <li><a href='/a/products/all'>Show Products</a></li>
+        <li><a href='/a/product'>Get Product</a></li>
+        <li><a href='/a/product/add'>Add Product</a></li>
+        <li><a href='/a/product/remove'>Remove Product</a></li>
+      </ul>
+      <div style="margin-left:25%;padding:1px 16px;height:1000px;">
+        <center>
+          <h2>Please enter Product details</h2><br>
+        </center>
+        <div id = 'bloc'>
+          <form action = '/a/product/add?id=value1&name=value2' method = "POST">
+            <label for="id"><strong>Product ID:</strong></label>&nbsp;
+            <input type="text" id="id" name="id" placeholder="Enter product ID">&nbsp;&nbsp;
+            <label for="name"><strong>Product Name:</strong></label>&nbsp;
+            <input type="text" id="name" name="name" placeholder="Enter product name"><br>
+            <input type = "submit" value = "Submit">
+          </form>
+        </div>
+      </div>
+    </body>
+</html>
