@@ -6,7 +6,7 @@ Small and simple projects I engage in during my idle time to practice my coding 
 - [Machine Management](https://github.com/oh-eeching/mini-projects/blob/e1ff6dbf7dc3b4710996a711d848484891dffddd/Simple%20Applications/vending_machine.py)
 
 # MySQL
-- [Automated Certificate Generator]()
+- [Automated Certificate Generator](https://github.com/oh-eeching/mini-projects/tree/main/mySQL/autoCertGenerator)
 
 # Python Flask
 - [Product Records](https://github.com/oh-eeching/mini-projects/tree/main/Python%20Flask/prodRecords) (with sqlite3)
