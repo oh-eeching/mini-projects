@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank of JK</title>
+</head>
+
+<body>
+    <style>
+        * {
+        box-sizing: border-box;
+        }
+
+        :root {
+        --background: #ffffff;
+        --background-accent: #a3e6f8;
+        --background-accent-2: #6ebee6;
+        --light: #3cbfee;
+        --dark: #2478ad;
+        --text: #030056;
+        }
+
+        body {
+        background-color: var(--background);
+        background-image: linear-gradient(
+            var(--background-accent-2) 50%,
+            var(--background-accent) 50%
+        ), linear-gradient(
+            var(--background-accent) 50%,
+            var(--background-accent-2) 50%
+        );
+        background-repeat: no-repeat;
+        background-size: 100% 30px;
+        background-position: top left, bottom left;
+        min-height: 98vh;
+        }
+
+        form {
+        display: block;
+        width: 400px;
+        margin: 0 auto 0 auto;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 250px;
+        }
+
+        button {
+        display: block;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        background-color: var(--light);
+        width: 400px;
+        height: 70px;
+        border-radius: 30px;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text);
+        background-size: 100% 100%;
+        box-shadow: 0 0 0 7px var(--light) inset;
+        margin-bottom: 15px;
+        }
+
+        .button:hover {background-color: #409fe3}
+
+        .button:active {
+            background-color: #3e7e8e;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        h1 {
+            font-family: Georgia;
+            text-align: center;
+            position: relative;
+            top: 50px;
+            
+        }  
+        img {
+            position: relative;
+            top:70px;
+
+        }   
+
+    </style>
+
+    <center><a href="/"><img src="/static/logo.jpeg" width="200" height="100" alt="logo" /></a></center>
+    <h1>BANK OF JK</h1>
+
+    <form action="{{ url_for("form")}}" method="POST" >
+        <button class ="button" type="submit" name="biz" value="Deposit or Withdrawal">Deposit or Withdrawal</button>
+        <button class ="button" type="submit" name="biz" value="Account Opening">Account Opening</button>
+        <button class ="button" type="submit" name="biz" value="Remittance">Remittance</button>
+        <button class ="button" type="submit" name="biz" value="Insurance Investment Loans">Insurance Investment Loans</button>
+    </form>
+</body>
+</html>
