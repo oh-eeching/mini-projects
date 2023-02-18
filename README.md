@@ -10,7 +10,7 @@ Small and simple projects I engage in during my idle time to practice my coding 
 - [Certificate Template](https://github.com/oh-eeching/mini-projects/blob/612a43465c71a347fcf0b2d9a9ee36419f514989/mySQL/certTemplate) (For MySQL application)
 
 # Python Flask
-- [Prod-Records](https://github.com/oh-eeching/mini-projects/blob/83bdce17699b62cdcc4690ea58adc8de187caad6/Web-Based/storeProduct/app.py) (with sqlite3)
+- [Product Records](https://github.com/oh-eeching/mini-projects/tree/main/Python%20Flask/prodRecords) (with sqlite3)
 - [Bank Queue System](https://github.com/oh-eeching/mini-projects/tree/main/Python%20Flask/bankQueueSystem)
   (for logo to appear on HTML page, please upload a folder named "static" containing the desired image)
 
