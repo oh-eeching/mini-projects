@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Queue</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript">
+        function refreshContent() {
+            $.ajax({
+                url: '/personal',
+                success: function (data) {
+                    $('#current-num').html(data);
+                }
+            });
+        }
+        setInterval(refreshContent, 3000);
+    </script>
+</head>
+<body>
+    <style>
+        * {
+        box-sizing: border-box;
+        }
+
+        :root {
+        --background: #ffffff;
+        --background-accent: #a3e6f8;
+        --background-accent-2: #6ebee6;
+        --light: #34b1de;
+        --dark: #2281bc;
+        --text: #030056;
+        }
+
+        body {
+        background-color: var(--background);
+        background-image: linear-gradient(
+            var(--background-accent-2) 50%,
+            var(--background-accent) 50%
+        ), linear-gradient(
+            var(--background-accent) 50%,
+            var(--background-accent-2) 50%
+        );
+        background-repeat: no-repeat;
+        background-size: 100% 30px;
+        background-position: top left, bottom left;
+        min-height: 98vh;
+        }
+
+        h1 {
+            font-family: Georgia;
+            text-align: center;
+            position: relative;
+            top: 50px;
+            
+        }  
+        img {
+            position: relative;
+            top:70px;
+
+        } 
+
+        #your-queue {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 100px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #num {
+            text-align: center;
+            font-size: 50px;
+            margin-top: -120px;
+            font-family: Arial, Helvetica, sans-serif;
+            color:#040074;
+        }
+
+        #current-num {
+            text-align: center;
+            font-size: 25px;
+            position: relative;
+            top: 100px;
+        }
+
+        h2 {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            position: relative;
+            top: 60px;
+            text-decoration: underline;
+        }
+
+    </style>
+    
+    <center><a href="/"><img src="/static/logo.jpeg" width="200" height="100" alt="logo" /></a></center>
+    <h1>BANK OF JK</h1>
+
+    <h2>{{branch}}</h2>
+    <h2>{{purpose}}</h2>
+
+    <div id="your-queue">
+        <p>Your Queue No.</p>
+    </div>
+
+    <div id="num">
+        <h1>{{num}}</h1> 
+    </div>
+
+    <div id="current-num">
+        <h3>Currently Serving: {{curr_serve}}</h3>
+    </div>
+
+</body>
+</html>
