@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator</title>
+</head>
+<body>
+    <style>
+        * {
+        box-sizing: border-box;
+        }
+
+        :root {
+        --background: #ffffff;
+        --background-accent: #a3e6f8;
+        --background-accent-2: #6ebee6;
+        --light: #34b1de;
+        --dark: #2281bc;
+        --text: #030056;
+        }
+
+        body {
+        background-color: var(--background);
+        background-image: linear-gradient(
+            var(--background-accent-2) 50%,
+            var(--background-accent) 50%
+        ), linear-gradient(
+            var(--background-accent) 50%,
+            var(--background-accent-2) 50%
+        );
+        background-repeat: no-repeat;
+        background-size: 100% 30px;
+        background-position: top left, bottom left;
+        min-height: 98vh;
+        }
+
+        #counter-num {
+            text-align: center;
+            position:relative;
+            margin: 60px;
+        }
+
+        .input { grid-area: menu; }
+        .item3 { grid-area: main; }
+
+        .grid-container {
+        display: grid;
+        grid-template-areas:
+            'menu menu main main main'
+            'menu menu main main main'
+            'menu menu main main main';
+        gap: 10px;
+        background-color: white;
+        padding: 10px;
+        width: 100%;
+        grid-template-rows: 300px;
+        grid-template-columns: fit-content(100px) fit-content(100px);
+        position: relative;
+        top: 20px;
+        }
+
+        .grid-container > div {
+        background-color: white;
+        text-align: center;
+        padding: 20px 0;
+        font-size: 23px;
+        font-family: Arial, Helvetica, sans-serif;
+        position: relative;
+        top: -90px;
+        height: 75vh;
+        }
+
+        #function {
+            line-height: 0px;  
+            border: 1px solid darkblue ;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        #curr-num {
+            line-height: 0px;  
+            border: 1px solid darkblue ;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        #font {
+            font-size: 30px;
+        }
+
+        #wait-num{
+            line-height: 0px;  
+            border: 1px solid darkblue ;
+            padding-bottom: 10px;
+            overflow:auto; 
+            height:200px;
+            list-style-type:none;
+        }
+
+        .input {
+            width: 90%;
+            position: relative;
+            z-index: 1;
+            top: 0px;
+            left: 10px;
+            background: white;
+            overflow-x: hidden;
+            padding: 8px 0;
+        }
+
+        .input button {
+            padding: 16px;
+            text-decoration: none;
+            color: #2196F3;
+            display: block;
+        }
+
+        @media screen and (max-height: 450px) {
+            .input {padding-top: 15px;}
+            .input button {font-size: 18px;}
+        }
+
+        .input .button {
+            background-color: #34b1de; 
+            border: 1px solid #2281bc;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 20px;
+            cursor: pointer;
+            width: 100%;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .input .button:not(:last-child) {
+            border-bottom: none; 
+        }
+
+        .input .button:hover {
+        background-color: #2281bc;
+        }
+
+
+    </style>
+
+    <div id="counter-num">
+        <h1>{{admin_branch}} Branch, Counter {{counter_num}}</h1>
+    </div>
+    <div id="box">
+        <div class="grid-container">
+
+            <div class="item3">
+                <div id="function">
+                    <p>Service Type</p>
+                    <form action="/admin/main/{{counter_num}}" method = "POST">
+                        <select name="service" id="service">
+                            <div>
+                            <option value="">--Please select service--</option>
+                            <option value="dw">Deposit/Withdrawal</option>
+                            <option value="ao">Account Opening</option>
+                            <option value="rem">Remittance</option>
+                            <option value="iil">Insurance Investment Loans</option>
+                            <option value="cor">Corporate</option>
+                        </select>
+                            
+                            <input type="submit" name="choice" value="Next">
+                            <input type="submit" name="choice" value="Call Again">
+                            <input type="submit" name="choice" value="Missed">
+    
+                    </form>
+                </div>
+  
+                <div id="curr-num">
+                    <p>Currently Serving</p><br>
+                    <p id="font"><strong>{{next_num}}</strong></p>
+                </div>
+
+                <div id="wait-num">
+                    <p>Waiting Line</p><br>
+                    {% if waiting == None %}
+                    <p>None in Line</p>
+                    {% else %}
+                    {% for w in waiting %}
+                    <ul style="list-style-type:none;">
+                        <li>{{w}}</li>
+                    </ul>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+
+            </div>  
+        </div>
+    </div>
+</body>
+</html>
