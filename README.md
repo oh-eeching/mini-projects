@@ -18,3 +18,6 @@ Small and simple projects I engage in during my idle time to practice my coding 
 # Text Mining/ Analysis
 - [CSV files](https://github.com/oh-eeching/mini-projects/blob/main/Text%20Sentiment/csv_files)
 - [Text files](https://github.com/oh-eeching/mini-projects/blob/main/Text%20Sentiment/text_files)
+
+# Python Flask
+- 
