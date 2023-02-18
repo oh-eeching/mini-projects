@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue Form</title>
+</head>
+<body>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+    
+            :root {
+                --background: #ffffff;
+                --background-accent: #a3e6f8;
+                --background-accent-2: #6ebee6;
+                --light: #34b1de;
+                --dark: #2281bc;
+                --text: #030056;
+            }
+    
+            body {
+                background-color: var(--background);
+                background-image: linear-gradient(
+                    var(--background-accent-2) 50%,
+                    var(--background-accent) 50%
+                ), linear-gradient(
+                    var(--background-accent) 50%,
+                    var(--background-accent-2) 50%
+                );
+                background-repeat: no-repeat;
+                background-size: 100% 30px;
+                background-position: top left, bottom left;
+                min-height: 98vh;
+            }
+    
+            div {
+                display: block;
+                width: 400px;
+                margin: 0 auto 0 auto;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 30vh;
+                border-radius: 5px;
+                background-color: #f2f2f2;
+                padding: 20px;
+                top: 300px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            input[type=text], select {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            input[type=submit] {
+                width: 100%;
+                background-color: #3ea7d8;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: larger;
+            }
+
+            input[type=submit]:hover {
+                background-color: #4c90af;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            h1 {
+                font-family: Georgia;
+                text-align: center;
+                position: relative;
+                top: 50px;
+                } 
+
+            img {
+                position: relative;
+                top:70px;
+            }
+                
+            h2 {
+                font-family: Arial, Helvetica, sans-serif;
+                text-align: center;
+                position: relative;
+                top: 60px;
+            }
+
+        </style>
+
+    <center><a href="/"><img src="/static/logo.jpeg" width="200" height="100" alt="logo" /></a></center>
+    <h1>BANK OF JK</h1>
+    
+    <h2>{{action}}</h2>
+
+    <div>
+        <form action="{{ url_for("personal")}}" method="POST">
+            <label for="contact">Contact Number</label>
+            <input type="text" id="contact" name="contact" placeholder="Please enter contact number">
+            <label for="category">Category</label>
+            <select name="category" id="category">
+                <option value="">--Please select category--</option>
+                <option value="Individual">Individual</option>
+                <option value="Corporate">Corporate</option>
+            </select>
+            <label for="branch">Branch</label>
+            <select name="branch" id="branch">
+                <option value="">--Please select a branch--</option>
+                <option value="Jurong">Jurong</option>
+                <option value="Woodlands">Woodlands</option>
+                <option value="HarbourFront">HarbourFront</option>
+                <option value="Bedok">Bedok</option>
+            </select>
+            <input type="submit" value="Get Queue Number">
+        </form>
+    </div>     
+</body>
+</html>
